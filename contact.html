@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Document</title>
+    <style>
+        #rh1{text-align: center;}
+    </style>
+</head>
+<body>
+   <nav class="navbar background" >
+        <ul class="nav-list">
+            <div class="logo"> <img src="./img/download1.jpg" alt="logo"></a></div>
+            <li><a href="final.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+
+        <div class="rightNav">
+            <input type="text" name="search" id="search">
+            <button class="btn btn-sm">Search</button>
+        </div>
+    </nav><br><br> 
+    <img src="./img/download12.webp"alt:missing image>
+   <form class="container">
+    
+        <legend>
+            
+        <center><h1>Contact Us - Safety Inquiry</h1><br></center>
+           <div class="col-1"><label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required></div>
+
+        
+
+           <div class="col-3"> <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required></div>
+
+           <div class="col-4"> <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required></div>
+
+            <div class="col-5"><label for="incident-type">Type of Incident:</label>
+            <select id="incident-type" name="incident-type" required>
+                <option value="">Select...</option>
+                <option value="accident">Accident</option>
+                <option value="near-miss">Near Miss</option>
+                <option value="hazard">Hazard</option>
+                <option value="other">Other</option>
+            </select></div>
+
+          
+
+          
+
+           <div class="col-8" ><button type="submit">Submit Inquiry</button>&nbsp;</div>
+        </form>
+    </div>
+
+
+
+         
+                    
+          
+
+    <div class="curve shape" style=" width: 100%;
+    height: 190px;
+    background-color: orange;
+    bottom:0 ;
+    border-radius: 30% 700% 0 0;
+    z-index: -1;  padding-left:0%; position:fixed;">
+</div>
+
+<script>
+    // Form validation
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const location = document.getElementById('location').value;
+        const incidentType = document.getElementById('incident-type').value;
+        
+        // Basic validation
+        if (!name || !phone || !location || !incidentType) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        // Phone number validation
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(phone.replace(/[-()\s]/g, ''))) {
+            alert('Please enter a valid 10-digit phone number');
+            return;
+        }
+        
+        // If validation passes
+        alert('Thank you for your inquiry. We will contact you shortly!');
+        this.reset();
+    });
+    
+    // Real-time field validation
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.style.borderColor = 'red';
+            } else {
+                this.style.borderColor = 'green';
+            }
+        });
+    });
+    
+    // Search functionality
+    document.getElementById('search').addEventListener('keyup', function(e) {
+        // Add search functionality if needed
+        console.log('Searching:', this.value);
+    });
+    </script>
+
+</body>
+</html>
